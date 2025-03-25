@@ -10,11 +10,13 @@ While the Squid Reverseproxy charm targets a "reverse proxy setup".
 
 This subordinate charm is currently only tested for a "forward proxy" use case and will enable you to control accesses in this context.
 
+
 ## In this documentation
 
 | | |
 |--|--|
 | [Tutorials](#tutorial-5)</br> Get started - a hands-on introduction to using the charm for new users </br> | [How-to guides](#how-to-8)</br> Step-by-step guides covering key operations and common tasks |
+
 
 ## Contributing to this documentation
 
@@ -24,6 +26,7 @@ Our documentation is hosted on the [Charmhub forum](https://discourse.charmhub.i
 
 If there's a particular area of documentation that you'd like to see that's missing, please 
 [file a bug](https://github.com/canonical/digest-squid-auth-helper/issues).
+
 
 ## Project and community
 
@@ -36,6 +39,7 @@ The *digest-squid-auth-helper* charm is a member of the Ubuntu family. It's an o
 Thinking about using the *digest-squid-auth-helper* charm for your next project?
 
 [Get in touch](https://matrix.to/#/#charmhub-charmdev:ubuntu.com)!
+
 
 # Contents
 
@@ -56,6 +60,7 @@ As this charm is a subordinate charm, you should have a [Squid Reverseproxy char
 ### Deploy
 
 Once your Squid instance is running, deploy the auth helper charm with `juju deploy digest-squid-auth-helper` and integrate it with your reverse proxy with `juju integrate squid-reverseproxy digest-squid-auth-helper`.
+
 
 ## How-to
 
