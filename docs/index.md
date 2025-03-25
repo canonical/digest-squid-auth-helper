@@ -80,3 +80,5 @@ The `juju run digest-squid-auth-helper/0 list-users` will return the list of act
 You can remove users with `juju run digest-squid-auth-helper/0 remove-user username=yourusername`
 
 Note: Squid caches some authentication lookups (see [documentation](https://wiki.squid-cache.org/Features/Authentication#does-squid-cache-authentication-lookups)).
+
+# Contents
