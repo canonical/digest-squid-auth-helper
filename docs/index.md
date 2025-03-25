@@ -37,7 +37,7 @@ Thinking about using the *digest-squid-auth-helper* charm for your next project?
 
 [Get in touch](https://matrix.to/#/#charmhub-charmdev:ubuntu.com)!
 
-# Contents
+# Documentation
 
 ## Tutorial
 
