@@ -8,4 +8,4 @@ jobs:
     uses: canonical/operator-workflows/.github/workflows/test.yaml@feat/gatekeeper_base_branch
     secrets: inherit
     with:
-      base_branch: 5/main
+      base-branch: 5/main
