@@ -5,5 +5,7 @@ on:
 
 jobs:
   unit-tests:
-    uses: canonical/operator-workflows/.github/workflows/test.yaml@main
+    uses: canonical/operator-workflows/.github/workflows/test.yaml@feat/gatekeeper_base_branch
     secrets: inherit
+    with:
+      base-branch: 5/main
