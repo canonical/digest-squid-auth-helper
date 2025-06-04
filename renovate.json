@@ -6,8 +6,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/)rockcraft.yaml$"
+      "managerFilePatterns": [
+        "/(^|/)rockcraft.yaml$/"
       ],
       "description": "Update base image references",
       "matchStringsStrategy": "any",
@@ -22,7 +22,10 @@
   "packageRules": [
     {
       "description": "Automerge non-major updates",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "automerge": true
     },
     {
