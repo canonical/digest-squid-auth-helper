@@ -12,4 +12,3 @@ jobs:
     secrets: inherit
     with:
       channel: 5/edge
-      base-branch: 5/main
