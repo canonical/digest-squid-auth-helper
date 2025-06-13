@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish-to-edge:
-    uses: canonical/operator-workflows/.github/workflows/publish_charm.yaml@feat/use_default_branch_as_base_branch
+    uses: canonical/operator-workflows/.github/workflows/publish_charm.yaml@main
     secrets: inherit
     with:
       channel: 5/edge
