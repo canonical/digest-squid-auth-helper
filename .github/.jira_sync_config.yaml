@@ -4,8 +4,8 @@ settings:
   
   status_mapping:
     opened: Untriaged
-    closed: Done
-    not_planned: Rejected
+    closed: done
+    not_planned: rejected
     
   add_gh_comment: true
   
