@@ -1,11 +1,13 @@
 [![CharmHub Badge](https://charmhub.io/digest-squid-auth-helper/badge.svg)](https://charmhub.io/digest-squid-auth-helper)
 [![Promote charm](https://github.com/canonical/digest-squid-auth-helper/actions/workflows/promote_charm.yaml/badge.svg)](https://github.com/canonical/digest-squid-auth-helper/actions/workflows/promote_charm.yaml)
 
+<!-- vale Canonical.007-Headings-sentence-case = NO -->
 # Squid Proxy Htfile auth helper
+<!-- vale Canonical.007-Headings-sentence-case = YES -->
 
 ## Description
 
-A [Juju](https://juju.is/) subordinate [charm](https://juju.is/docs/olm/charmed-operators) for
+A [Juju](https://juju.is/) subordinate [charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/) for
 the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables
 digest or basic authentication using squid-auth-helper relation.
 
@@ -27,7 +29,7 @@ If you don't already have a running Juju environment, you can follow the [Get st
 
 As this charm is a subordinate charm, you should have a [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
-- Create your juju model: `juju add-model test-squid`
+- Create your Juju model: `juju add-model test-squid`
 - Deploy the reverseproxy charm: `juju deploy squid-reverseproxy`
 - Monitor the deployment with: `juju status --watch 2s`
 
@@ -68,4 +70,4 @@ open source project that warmly welcomes community projects, contributions,
 suggestions, fixes and constructive feedback.
 * [Issues](https://github.com/canonical/digest-squid-auth-helper/issues)
 * [Get support](https://discourse.charmhub.io/)
-* [Contribute](https://charmhub.io/digest-squid-auth-helper/docs/contributing)
+* [Contribute](CONTRIBUTING.md)
