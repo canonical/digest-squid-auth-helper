@@ -47,7 +47,7 @@ If you don't already have a running Juju environment, you can follow the [Get st
 
 As this charm is a subordinate charm, you should have a [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
-- Create your juju model: `juju add-model test-squid`
+- Create your Juju model: `juju add-model test-squid`
 
 - Deploy the reverse proxy charm: `juju deploy squid-reverseproxy`
 
