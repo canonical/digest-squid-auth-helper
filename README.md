@@ -5,7 +5,7 @@
 
 ## Description
 
-A [Juju](https://juju.is/) subordinate [charm](https://juju.is/docs/olm/charmed-operators) for
+A [Juju](https://juju.is/) subordinate [charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/) for
 the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables
 digest or basic authentication using squid-auth-helper relation.
 
@@ -68,4 +68,4 @@ open source project that warmly welcomes community projects, contributions,
 suggestions, fixes and constructive feedback.
 * [Issues](https://github.com/canonical/digest-squid-auth-helper/issues)
 * [Get support](https://discourse.charmhub.io/)
-* [Contribute](https://charmhub.io/digest-squid-auth-helper/docs/contributing)
+* [Contribute](CONTRIBUTING.md)
