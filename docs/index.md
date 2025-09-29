@@ -1,4 +1,4 @@
-A [Juju](https://juju.is/) subordinate [charm](https://juju.is/docs/olm/charmed-operators) for the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
+A [Juju](https://juju.is/) subordinate [charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/) for the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
 
 As a subordinate charm this charm requires the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) to be deployed and integrated with it.
 
@@ -47,7 +47,7 @@ If you don't already have a running Juju environment, you can follow the [Get st
 
 As this charm is a subordinate charm, you should have a [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
-- Create your juju model: `juju add-model test-squid`
+- Create your Juju model: `juju add-model test-squid`
 
 - Deploy the reverse proxy charm: `juju deploy squid-reverseproxy`
 
@@ -80,7 +80,5 @@ The `juju run digest-squid-auth-helper/0 list-users` will return the list of act
 You can remove users with `juju run digest-squid-auth-helper/0 remove-user username=yourusername`
 
 Note: Squid caches some authentication look-ups (see [documentation](https://wiki.squid-cache.org/Features/Authentication#does-squid-cache-authentication-lookups)).
-
-# Contents
 
 # Contents
