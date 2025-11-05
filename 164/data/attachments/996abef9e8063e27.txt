@@ -1,0 +1,34 @@
+[32mINFO    [0m juju.model:__init__.py:3254 Waiting for model:
+  digest-squid-auth-helper/0 [idle] active:
+[32mINFO    [0m pytest_operator.plugin:plugin.py:951 Model status:
+
+Model            Controller           Cloud/Region         Version  SLA          Timestamp
+test-charm-ku5e  github-pr-e41d5-lxd  localhost/localhost  3.1.10   unsupported  14:57:24Z
+
+App                       Version  Status   Scale  Charm                     Channel        Rev  Exposed  Message
+client                    22.04    active       1  ubuntu                    latest/stable   26  no       
+digest-squid-auth-helper           active       1  digest-squid-auth-helper                   0  no       
+squid-reverseproxy                 unknown      1  squid-reverseproxy        latest/stable   24  no       
+
+Unit                           Workload  Agent  Machine  Public address  Ports     Message
+client/0*                      active    idle   0        10.199.249.34             
+squid-reverseproxy/0*          unknown   idle   1        10.199.249.74   3128/tcp  
+  digest-squid-auth-helper/0*  active    idle            10.199.249.74             
+
+Machine  State    Address        Inst id        Base          AZ  Message
+0        started  10.199.249.34  juju-660708-0  ubuntu@22.04      Running
+1        started  10.199.249.74  juju-660708-1  ubuntu@22.04      Running
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:957 Juju error logs:
+
+machine-0: 14:54:07 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 14:54:07 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 14:54:07 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+unit-client-0: 14:54:07 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 14:54:14 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-1: 14:54:14 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-1: 14:54:14 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-squid-reverseproxy-0: 14:54:14 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-digest-squid-auth-helper-0: 14:55:13 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:1039 Forgetting model main...
