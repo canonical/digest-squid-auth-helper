@@ -20,8 +20,12 @@ import ops
 from passlib.apache import HtdigestFile, HtpasswdFile
 from tabulate import tabulate
 
-from charm_state import AuthenticationTypeEnum, CharmState
-from exceptions import CharmConfigInvalidError, SquidPathNotFoundError
+from charm_state import (
+    AuthenticationTypeEnum,
+    CharmConfigInvalidError,
+    CharmState,
+    SquidPathNotFoundError,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -70,7 +74,7 @@ def block_if_invalid_config(
             return method(instance, event)
         except CharmConfigInvalidError as exc:
             logger.exception("Wrong Charm Configuration")
-            status = ops.BlockedStatus(exc.msg)
+            status = ops.BlockedStatus(str(exc))
             instance.unit.status = status
             if instance.unit.is_leader():
                 instance.app.status = status

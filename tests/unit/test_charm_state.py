@@ -14,8 +14,12 @@ import pytest
 from ops import CharmBase
 from unit.constants import DEFAULT_REALM, VAULT_FILENAME, VAULT_FILEPATH
 
-from charm_state import AuthenticationTypeEnum, CharmState
-from exceptions import CharmConfigInvalidError, SquidPathNotFoundError
+from charm_state import (
+    AuthenticationTypeEnum,
+    CharmConfigInvalidError,
+    CharmState,
+    SquidPathNotFoundError,
+)
 
 
 @pytest.fixture(name="mocked_charm")
@@ -109,7 +113,7 @@ def test_charm_state_from_charm_missing_filepath(
     with pytest.raises(CharmConfigInvalidError) as exc:
         CharmState.from_charm(charm)
 
-    assert expected in exc.value.msg
+    assert expected in str(exc.value)
 
 
 @pytest.mark.usefixtures("tools_directory")
@@ -126,7 +130,7 @@ def test_charm_state_from_charm_digest_missing_realm() -> None:
     with pytest.raises(CharmConfigInvalidError) as exc:
         CharmState.from_charm(charm)
 
-    assert "realm configuration is mandatory for digest authentication." in exc.value.msg
+    assert "realm configuration is mandatory for digest authentication." in str(exc.value)
 
 
 def test_charm_state_from_charm_no_squid_folder(mocked_charm: CharmBase) -> None:
@@ -138,4 +142,4 @@ def test_charm_state_from_charm_no_squid_folder(mocked_charm: CharmBase) -> None
     with pytest.raises(SquidPathNotFoundError) as exc:
         CharmState.from_charm(mocked_charm)
 
-    assert exc.value.msg == "Squid tools path can't be found"
+    assert str(exc.value) == "Squid tools path can't be found"

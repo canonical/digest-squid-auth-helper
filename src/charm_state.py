@@ -11,7 +11,14 @@ from pathlib import Path
 from ops import CharmBase
 from pydantic import BaseModel, ValidationError
 
-from exceptions import CharmConfigInvalidError, SquidPathNotFoundError
+
+class CharmConfigInvalidError(Exception):
+    """Exception raised when a charm configuration is found to be invalid."""
+
+
+class SquidPathNotFoundError(Exception):
+    """Exception raised when Squid path can't be found."""
+
 
 SQUID_TOOLS_PATH = Path("/usr/lib/squid")
 

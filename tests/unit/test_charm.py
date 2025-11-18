@@ -19,8 +19,7 @@ from unit.constants import DEFAULT_REALM, VAULT_FILENAME, VAULT_FILEPATH
 
 import charm
 import charm_state
-from charm_state import AuthenticationTypeEnum, CharmState
-from exceptions import SquidPathNotFoundError
+from charm_state import AuthenticationTypeEnum, CharmState, SquidPathNotFoundError
 
 USER = "test"
 USER_CREDENTIALS = "password"
@@ -255,7 +254,7 @@ def test_auth_helper_no_squid_folder() -> None:
     with pytest.raises(SquidPathNotFoundError) as err:
         harness.begin_with_initial_hooks()
 
-    assert "Squid tools path can't be found" in str(err.value.msg)
+    assert "Squid tools path can't be found" in str(err.value)
 
 
 @pytest.mark.usefixtures("tools_directory")
@@ -464,7 +463,7 @@ def test_create_user_no_vault_file(digest_charm: Harness) -> None:
     with pytest.raises(SquidPathNotFoundError) as exc:
         digest_charm.charm._on_create_user(event)
 
-    assert charm.VAULT_FILE_MISSING in str(exc.value.msg)
+    assert charm.VAULT_FILE_MISSING in str(exc.value)
 
 
 @pytest.mark.usefixtures("tools_directory")
@@ -533,7 +532,7 @@ def test_remove_user_no_vault_file(digest_charm: Harness) -> None:
     with pytest.raises(SquidPathNotFoundError) as exc:
         digest_charm.charm._on_remove_user(event)
 
-    assert charm.VAULT_FILE_MISSING in str(exc.value.msg)
+    assert charm.VAULT_FILE_MISSING in str(exc.value)
 
 
 @pytest.mark.usefixtures("tools_directory")
@@ -575,7 +574,7 @@ def test_list_users_no_vault_file(digest_charm: Harness) -> None:
     with pytest.raises(SquidPathNotFoundError) as exc:
         digest_charm.charm._on_list_users(event)
 
-    assert charm.VAULT_FILE_MISSING in str(exc.value.msg)
+    assert charm.VAULT_FILE_MISSING in str(exc.value)
 
 
 @pytest.mark.usefixtures("tools_directory")
@@ -618,4 +617,4 @@ def test_charm_state_get_vault_no_file(digest_charm: Harness) -> None:
     with pytest.raises(SquidPathNotFoundError) as exc:
         digest_charm.charm._get_auth_vault(state)
 
-    assert charm.VAULT_FILE_MISSING == exc.value.msg
+    assert charm.VAULT_FILE_MISSING == str(exc.value)
