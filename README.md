@@ -1,3 +1,4 @@
+Update upstream
 [![CharmHub Badge](https://charmhub.io/digest-squid-auth-helper/badge.svg)](https://charmhub.io/digest-squid-auth-helper)
 [![Promote charm](https://github.com/canonical/digest-squid-auth-helper/actions/workflows/promote_charm.yaml/badge.svg)](https://github.com/canonical/digest-squid-auth-helper/actions/workflows/promote_charm.yaml)
 
