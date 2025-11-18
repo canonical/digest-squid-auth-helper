@@ -8,7 +8,12 @@
 """A subordinate charm enabling support for digest authentication on Squid Reverseproxy charm."""
 
 import json
+import logging
+import secrets
 import shutil
+import string
+import typing
+from functools import wraps
 from typing import Any
 
 import ops
@@ -16,9 +21,12 @@ from passlib.apache import HtdigestFile, HtpasswdFile
 from tabulate import tabulate
 
 from charm_state import AuthenticationTypeEnum, CharmState
-from charm_state_decorator import block_if_invalid_config
-from exceptions import SquidPathNotFoundError
-from password import generate_password
+from exceptions import CharmConfigInvalidError, SquidPathNotFoundError
+
+logger = logging.getLogger(__name__)
+
+C = typing.TypeVar("C", bound=ops.CharmBase)
+E = typing.TypeVar("E", bound=ops.EventBase)
 
 AUTH_HELPER_RELATION_NAME = "squid-auth-helper"
 
@@ -33,6 +41,74 @@ VAULT_FILE_MISSING = "Vault file is missing, something probably went wrong durin
 SQUID_USER = "proxy"
 
 USER_PASSWORD_LENGTH = 12
+
+
+def block_if_invalid_config(
+    method: typing.Callable[[C, E], None],
+) -> typing.Callable[[C, E], None]:
+    """Create a decorator that puts the charm in blocked state if the config is wrong.
+
+    Args:
+        method: observer method to wrap.
+
+    Returns:
+        the function wrapper
+    """
+
+    @wraps(method)
+    def wrapper(instance: C, event: E) -> None:
+        """Block the charm if the config is wrong.
+
+        Args:
+            instance: the instance of the class with the hook method.
+            event: the event for the observer
+
+        Returns:
+            The value returned from the original function. That is, None.
+        """
+        try:
+            return method(instance, event)
+        except CharmConfigInvalidError as exc:
+            logger.exception("Wrong Charm Configuration")
+            status = ops.BlockedStatus(exc.msg)
+            instance.unit.status = status
+            if instance.unit.is_leader():
+                instance.app.status = status
+            return None
+
+    return wrapper
+
+
+def generate_password(length: int) -> str:
+    """Generate a password with the given policy.
+
+    Args:
+        length: The length of the password to be generated.
+
+    Return:
+        The generated password.
+
+    Raises:
+        ValueError: If the password length is too short.
+    """
+    if length < 8:
+        raise ValueError("Password length is too short.")
+
+    hard_to_escape = {"'", '"'}
+    characters = "".join(
+        set(string.ascii_letters + string.digits + string.punctuation) - set(hard_to_escape)
+    )
+    while True:
+        password = "".join(secrets.choice(characters) for i in range(length))
+        # At least 1 upper letter, 1 lower letter and 1 digit
+        if (
+            sum(c.islower() for c in password) >= 1
+            and any(c.isupper() for c in password) >= 1
+            and sum(c.isdigit() for c in password) >= 1
+        ):
+            break
+
+    return password
 
 
 class HtfileSquidAuthHelperCharm(ops.CharmBase):

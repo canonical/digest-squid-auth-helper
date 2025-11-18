@@ -4,8 +4,7 @@
 
 import pytest
 
-from charm import USER_PASSWORD_LENGTH
-from password import generate_password
+from charm import USER_PASSWORD_LENGTH, generate_password
 
 
 def test_password_ok():
