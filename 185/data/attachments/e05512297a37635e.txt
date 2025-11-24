@@ -1,0 +1,4 @@
+[32mINFO    [0m juju.model:__init__.py:3254 Waiting for model:
+  squid-reverseproxy/0 [idle] unknown: 
+[32mINFO    [0m juju.model:__init__.py:3254 Waiting for model:
+  digest-squid-auth-helper (not enough units yet - 0/1)
