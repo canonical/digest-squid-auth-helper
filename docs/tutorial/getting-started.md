@@ -10,7 +10,7 @@ the [Get started with Juju](https://juju.is/docs/juju/tutorial) guide to set up 
 isolated test environment.
 
 As this charm is a subordinate charm, you should have a 
-[Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
+[Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
 Create your Juju model:
 

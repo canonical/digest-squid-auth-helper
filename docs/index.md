@@ -1,14 +1,12 @@
-A [Juju](https://juju.is/) [subordinate charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/#subordinate-charm) for the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
+A [Juju](https://juju.is/) [subordinate charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/#subordinate-charm) for the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
 
-As a subordinate charm this charm requires the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) to be deployed and integrated with it.
+As a subordinate charm this charm requires the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) to be deployed and integrated with it.
 
-The charm brings digest or basic authentication support to the Squid Reverseproxy using the `squid-auth-helper` charm relation.
+The charm brings digest or basic authentication support to the Squid reverse proxy using the `squid-auth-helper` charm relation.
 
 It allows you to manage user credentials through charm actions (create-user, remove-user, list-users), and configure authentication parameters using charm configuration.
 
-While the Squid Reverseproxy charm targets a "reverse proxy setup".
-
-This subordinate charm is currently only tested for a "forward proxy" use case and will enable you to control accesses in this context.
+While the Squid reverse proxy charm targets a "reverse proxy setup", this subordinate charm is currently only tested for a "forward proxy" use case and will enable you to control accesses in this context.
 
 ## In this documentation
 

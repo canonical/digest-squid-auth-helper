@@ -5,7 +5,7 @@
 
 # Learn more at: https://juju.is/docs/sdk
 
-"""A subordinate charm enabling support for digest authentication on Squid Reverseproxy charm."""
+"""A subordinate charm enabling support for digest authentication on Squid reverse proxy charm."""
 
 import json
 import shutil
@@ -23,10 +23,10 @@ from password import generate_password
 AUTH_HELPER_RELATION_NAME = "squid-auth-helper"
 
 EVENT_FAIL_RELATION_MISSING_MESSAGE = (
-    "Before running this action, integrate the charm to a Squid Reverseproxy charm."
+    "Before running this action, integrate the charm to a Squid reverse proxy charm."
 )
 STATUS_BLOCKED_RELATION_MISSING_MESSAGE = (
-    "Waiting for integration with Squid Reverseproxy charm..."
+    "Waiting for integration with Squid reverse proxy charm..."
 )
 VAULT_FILE_MISSING = "Vault file is missing, something probably went wrong during install."
 
@@ -36,7 +36,7 @@ USER_PASSWORD_LENGTH = 12
 
 
 class HtfileSquidAuthHelperCharm(ops.CharmBase):
-    """A subordinate charm enabling support for basic or digest auth on Squid Reverseproxy."""
+    """A subordinate charm enabling support for basic or digest auth on Squid reverse proxy."""
 
     def __init__(self, *args):
         """Construct the charm.
