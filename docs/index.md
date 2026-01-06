@@ -1,4 +1,4 @@
-A [Juju](https://juju.is/) subordinate [charm](https://juju.is/docs/olm/charmed-operators) for the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
+A [Juju](https://juju.is/) [subordinate charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/#subordinate-charm) for the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables digest or basic authentication using squid-auth-helper relation.
 
 As a subordinate charm this charm requires the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) to be deployed and integrated with it.
 

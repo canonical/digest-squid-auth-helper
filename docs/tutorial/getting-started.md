@@ -16,7 +16,7 @@ Create your Juju model:
 
 `juju add-model test-squid`
 
-Deploy the reverseproxy charm: 
+Deploy the reverse proxy charm: 
 
 `juju deploy squid-reverseproxy`
 
