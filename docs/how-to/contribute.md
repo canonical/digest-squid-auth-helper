@@ -1,6 +1,6 @@
 # How to contribute
 
-Our documentation is hosted on the [Charmhub forum](https://discourse.charmhub.io/t/digest-squid-auth-helper-documentation-overview/16141) to enable collaboration. Please use the "Help us improve this documentation" links on each documentation page to either directly change something you see that's wrong, ask a question, or make a suggestion about a potential change via the comments section.
+Our documentation is hosted on the [Charmhub forum](https://discourse.charmhub.io/t/digest-squid-auth-helper-documentation-overview/16141) to enable collaboration. Please use the "Help us improve this documentation" links on each documentation page to either directly change something you see that's wrong, ask a question, or make a suggestion about a potential change through the comments section.
 
 Our documentation is also available alongside the [source code on GitHub](https://github.com/canonical/digest-squid-auth-helper).
 You may open a pull request with your documentation changes, or you can

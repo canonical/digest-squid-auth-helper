@@ -1,12 +1,18 @@
 # Tutorial
 
+In this tutorial, we'll walk you through the process of deploying the 
+`digest-squid-auth-helper` charm. 
+
 ## Set up
 
-If you don't already have a running Juju environment, you can follow the [Get started with Juju](https://juju.is/docs/juju/tutorial) guide to set up an isolated test environment.
+If you don't already have a running Juju environment, you can follow 
+the [Get started with Juju](https://juju.is/docs/juju/tutorial) guide to set up an 
+isolated test environment.
 
-As this charm is a subordinate charm, you should have a [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
+As this charm is a subordinate charm, you should have a 
+[Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
-Create your juju model:
+Create your Juju model:
 
 `juju add-model test-squid`
 
