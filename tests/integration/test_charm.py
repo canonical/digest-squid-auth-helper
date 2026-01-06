@@ -84,7 +84,10 @@ async def test_build_and_deploy(ops_test: OpsTest, pytestconfig: pytest.Config):
 
     await asyncio.gather(
         ops_test.model.deploy(
-            f"./{charm}", application_name=APP_NAME, num_units=0, series="jammy"
+            f"./{charm}",
+            application_name=APP_NAME,
+            num_units=0,
+            base="ubuntu@22.04",
         ),
         ops_test.model.wait_for_idle(
             apps=[APP_NAME],
@@ -110,18 +113,22 @@ async def test_deploy_squid_and_client(ops_test: OpsTest):
         ops_test.model.deploy(
             SQUID_CHARM,
             application_name=SQUID_CHARM,
-            series="jammy",
+            base="ubuntu@22.04",
             config={
                 "wait_for_auth_helper": True,
                 "port_options": "",
                 "auth_list": '- "proxy_auth": [REQUIRED]',
             },
         ),
-        ops_test.model.wait_for_idle(apps=[SQUID_CHARM], status="unknown", raise_on_blocked=True),
+        ops_test.model.wait_for_idle(
+            apps=[SQUID_CHARM],
+            status="unknown",
+            raise_on_blocked=True,
+        ),
         ops_test.model.deploy(
             "ubuntu",
             application_name=CLIENT_NAME,
-            series="jammy",
+            base="ubuntu@22.04",
         ),
         ops_test.model.wait_for_idle(apps=[CLIENT_NAME], status="active", raise_on_blocked=True),
     )
