@@ -6,17 +6,17 @@
 ## Description
 
 A [Juju](https://juju.is/) subordinate [charm](https://documentation.ubuntu.com/juju/3.6/reference/charm/) for
-the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) that enables
+the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) that enables
 digest or basic authentication using squid-auth-helper relation.
 
-As a subordinate charm this charm requires the [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy)
+As a subordinate charm this charm requires the [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy)
 to be deployed and integrated with it.
 
-The charm brings digest or basic authentication support to the Squid Reverseproxy using the `squid-auth-helper` charm relation.
+The charm brings digest or basic authentication support to the Squid reverse proxy using the `squid-auth-helper` charm relation.
 It allows you to manage user credentials through charm actions (create-user, remove-user, list-users), and configure authentication
 parameters using charm configuration.
 
-While the Squid Reverseproxy charm targets a "reverse proxy setup".
+While the Squid reverse proxy charm targets a "reverse proxy setup".
 This subordinate charm is currently only tested for a "forward proxy" use case.
 
 ## Get started
@@ -25,7 +25,7 @@ This subordinate charm is currently only tested for a "forward proxy" use case.
 
 If you don't already have a running Juju environment, you can follow the [Get started with Juju](https://juju.is/docs/juju/tutorial) guide to set up an isolated test environment.
 
-As this charm is a subordinate charm, you should have a [Squid Reverseproxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
+As this charm is a subordinate charm, you should have a [Squid reverse proxy charm](https://charmhub.io/squid-reverseproxy) running before deploying it.
 
 - Create your Juju model: `juju add-model test-squid`
 - Deploy the reverse proxy charm: `juju deploy squid-reverseproxy`
