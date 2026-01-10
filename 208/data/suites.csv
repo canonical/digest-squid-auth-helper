@@ -1,0 +1,27 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Deploy the charm alone, and wait for 'unknown' status.","2515","test_build_and_deploy","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that authenticated users have access.
+
+    Test Basic and Digest protocols for http and https websites.
+    ","17618","test_authenticated_requests[digest-https]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check vault ownership and permissions.","560","test_vault_ownership_and_permissions","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that authenticated users have access.
+
+    Test Basic and Digest protocols for http and https websites.
+    ","17433","test_authenticated_requests[digest-http]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Integrate the auth helper and sure Squid has started with authentication required.","23635","test_relation","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that unauthenticated users cannot access.","18120","test_unauthenticated_requests[basic]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that authenticated users have access.
+
+    Test Basic and Digest protocols for http and https websites.
+    ","17659","test_authenticated_requests[basic-https]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that authenticated users have access.
+
+    Test Basic and Digest protocols for http and https websites.
+    ","18069","test_authenticated_requests[basic-http]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check that unauthenticated users cannot access.","17673","test_unauthenticated_requests[digest]","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
+"Check testing environment.
+
+    Deploy Squid and check that it waits for an auth helper.
+    Deploy a client unit to be able to test access later.
+    ","211526","test_deploy_squid_and_client","tests.integration","2026-01-10","passed","2026-01-10","","test_charm","",""
