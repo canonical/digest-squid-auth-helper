@@ -6,7 +6,6 @@
 # pylint: disable=duplicate-code,missing-function-docstring,protected-access
 """Unit tests."""
 
-
 from typing import Generator
 from unittest.mock import MagicMock
 
