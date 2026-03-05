@@ -1,33 +1,44 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "automerge": true,
+  "customDatasources": {
+    "charmhub": {
+      "defaultRegistryUrlTemplate": "https://api.charmhub.io/v2/charms/info/{{packageName}}?fields=channel-map",
+      "format": "json",
+      "transformTemplates": [
+        "{\"releases\": [{\"version\": $string($$.(`channel-map`[channel.risk = 'edge' and channel.track = '5' and channel.base.architecture = 'amd64' and channel.base.channel = '22.04'].revision.revision)}]}"
+      ]
+    }
+  },
   "customManagers": [
     {
       "customType": "regex",
+      "datasourceTemplate": "docker",
+      "description": "Update base image references",
       "managerFilePatterns": [
         "/(^|/)rockcraft.yaml$/"
       ],
-      "description": "Update base image references",
-      "matchStringsStrategy": "any",
       "matchStrings": [
         "# renovate: build-base:\\s+(?<depName>[^:]*):(?<currentValue>[^\\s@]*)(@(?<currentDigest>sha256:[0-9a-f]*))?",
         "# renovate: base:\\s+(?<depName>[^:]*):(?<currentValue>[^\\s@]*)(@(?<currentDigest>sha256:[0-9a-f]*))?"
       ],
-      "datasourceTemplate": "docker",
+      "matchStringsStrategy": "any",
       "versioningTemplate": "ubuntu"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["\\.tftest\\.hcl$", "\\.tf$"],
+      "matchStrings": ["# renovate: depName=\"(?<packageName>[^\"]+)\"\\s*\\n\\s*(?<fieldName>[a-zA-Z0-9_]+)\\s*=\\s*(?<currentValue>\\d+)"],
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.charmhub"
     }
   ],
+  "extends": [
+    "config:recommended",
+    "group:allNonMajor"
+  ],
+  "ignorePaths": [],
   "packageRules": [
-    {
-      "description": "Automerge non-major updates",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "automerge": true
-    },
     {
       "enabled": true,
       "matchDatasources": [
@@ -36,6 +47,14 @@
       "pinDigests": true
     },
     {
+      "automerge": true,
+      "enabled": true,
+      "matchDatasources": [
+        "custom.charmhub"
+      ]
+    },
+    {
+      "enabled": false,
       "matchFileNames": [
         "rockcraft.yaml"
       ],
@@ -43,8 +62,7 @@
         "major",
         "minor",
         "patch"
-      ],
-      "enabled": false
+      ]
     }
   ]
 }
