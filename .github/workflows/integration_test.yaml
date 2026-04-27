@@ -13,7 +13,6 @@ jobs:
     with:
       juju-channel: 3.6/stable
       tmate-debug: false
-      load-test-enabled: false
       trivy-fs-enabled: true
       trivy-image-config: "trivy.yaml"
       zap-enabled: false
