@@ -15,7 +15,6 @@ jobs:
       tmate-debug: false
       trivy-fs-enabled: true
       trivy-image-config: "trivy.yaml"
-      zap-enabled: false
       provider: lxd
   allure-report:
     if: ${{ !cancelled() && github.event_name == 'schedule' }}
