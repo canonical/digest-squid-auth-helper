@@ -10,7 +10,7 @@ variable "app_name" {
 variable "base" {
   description = "The operating system on which to deploy"
   type        = string
-  default     = "ubuntu@22.04"
+  default     = null
 }
 
 variable "channel" {
@@ -28,7 +28,7 @@ variable "config" {
 variable "constraints" {
   description = "Juju constraints to apply for this application."
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "model_uuid" {
