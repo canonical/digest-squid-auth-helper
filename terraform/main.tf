@@ -13,5 +13,5 @@ resource "juju_application" "digest-squid-auth-helper" {
   }
 
   config      = var.config
-  constraints = var.constraints
+  constraints = var.constraints != null ? var.constraints : ""
 }
