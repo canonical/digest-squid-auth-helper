@@ -13,6 +13,6 @@ permissions:
 
 jobs:
   terraform-compliance:
-    uses: canonical/operator-workflows/.github/workflows/terraform_modules_compliance.yaml@main  # main
+    uses: canonical/operator-workflows/.github/workflows/terraform_modules_compliance.yaml@5676f399b24b23385c1cf50867997e15226e8ad3  # main
     with:
       terraform-directories: '["terraform"]'
