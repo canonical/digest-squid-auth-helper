@@ -5,6 +5,7 @@ variable "app_name" {
   description = "Name of the application in the Juju model."
   type        = string
   default     = "digest-squid-auth-helper"
+  nullable    = false
 }
 
 variable "base" {
@@ -17,12 +18,14 @@ variable "channel" {
   description = "The channel to use when deploying a charm."
   type        = string
   default     = "5/stable"
+  nullable    = false
 }
 
 variable "config" {
   description = "Application config. Details about available options can be found at https://charmhub.io/digest-squid-auth-helper/configurations."
   type        = map(string)
   default     = {}
+  nullable    = false
 }
 
 variable "constraints" {
@@ -34,6 +37,7 @@ variable "constraints" {
 variable "model_uuid" {
   description = "UUID of the Juju model where the application will be deployed."
   type        = string
+  nullable    = false
 }
 
 variable "revision" {

@@ -16,12 +16,12 @@ run "basic_deploy" {
   }
 
   assert {
-    condition     = output.application == "digest-squid-auth-helper"
+    condition     = output.application.name == "digest-squid-auth-helper"
     error_message = "digest-squid-auth-helper application output did not match expected"
   }
 
   assert {
-    condition     = contains(keys(output.requires), "squid_auth_helper")
+    condition     = contains(keys(output.requires), "squid-auth-helper")
     error_message = "Should have squid-auth-helper requires endpoint"
   }
 }
