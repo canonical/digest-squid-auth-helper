@@ -16,7 +16,22 @@ run "basic_deploy" {
   }
 
   assert {
-    condition     = output.app_name == "digest-squid-auth-helper"
-    error_message = "digest-squid-auth-helper app_name did not match expected"
+    condition     = output.application.name == "digest-squid-auth-helper"
+    error_message = "digest-squid-auth-helper application name did not match expected"
+  }
+
+  assert {
+    condition     = output.requires["squid-auth-helper"].kind == "endpoint"
+    error_message = "squid-auth-helper requires kind did not match expected"
+  }
+
+  assert {
+    condition     = output.requires["squid-auth-helper"].name == "digest-squid-auth-helper"
+    error_message = "squid-auth-helper requires name did not match expected"
+  }
+
+  assert {
+    condition     = output.requires["squid-auth-helper"].endpoint == "squid-auth-helper"
+    error_message = "squid-auth-helper requires endpoint did not match expected"
   }
 }

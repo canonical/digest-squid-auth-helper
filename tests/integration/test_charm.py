@@ -129,6 +129,7 @@ async def test_deploy_squid_and_client(ops_test: OpsTest):
             "ubuntu",
             application_name=CLIENT_NAME,
             base="ubuntu@22.04",
+            series="jammy",
         ),
         ops_test.model.wait_for_idle(apps=[CLIENT_NAME], status="active", raise_on_blocked=True),
     )
