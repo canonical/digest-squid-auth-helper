@@ -25,7 +25,10 @@ CLIENT_NAME = "client"
 
 SQUID_CHARM = "squid-reverseproxy"
 
-FQDN = "canonical.com"
+# canonical.com no longer accepts plain HTTP connections (port 80 connection
+# timeouts), which made the "http" protocol test cases fail consistently.
+# example.com serves both HTTP and HTTPS reliably, so it is used instead.
+FQDN = "example.com"
 
 
 async def check_access(
