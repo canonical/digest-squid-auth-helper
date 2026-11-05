@@ -1,4 +1,4 @@
 ops==3.9.0
-pydantic==2.14.1
+pydantic==2.14.3
 libpass==1.9.4
 tabulate==0.10.0
